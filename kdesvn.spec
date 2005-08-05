@@ -29,8 +29,7 @@ KDE.
 kdesvn jest kolejnym klientem subversion. U¿ywa jednak natywnego API
 KDE zamiast dodatkowej biblioteki jak GAMBAS, jak równie¿ u¿ywa
 natywnego API subversion zamiast analizy wyj¶cia narzêdzia
-dzia³aj±cego z linii poleceñ, tak jak to robi± inni klienci
-subversion.
+dzia³aj±cego z linii poleceñ, jak to robi± inni klienci subversion.
 
 Program ten stara siê ustawiæ wygl±d zbli¿ony do standardowego
 zarz±dcy plików KDE.
