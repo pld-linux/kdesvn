@@ -47,6 +47,7 @@ cp -f /usr/share/automake/config.sub admin
 %endif
 	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
 	--with-qt-libraries=%{_libdir} \
+	--with-svn-lib=%{_libdir} \
 	--with-apr-config=/usr/bin/apr-1-config \
 	--with-apu-config=/usr/bin/apu-1-config
 
