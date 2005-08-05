@@ -1,5 +1,5 @@
-Summary:	kde frontend for subversion
-Summary(pl):	frontend kde do subversion
+Summary:	KDE frontend for subversion
+Summary(pl):	Frontend KDE do subversion
 Name:		kdesvn
 Version:	0.4.1
 Release:	1
@@ -27,9 +27,10 @@ KDE.
 
 %description -l pl
 kdesvn jest kolejnym klientem subversion. U¿ywa jednak natywnego API
-KDE zamiast dodatkowej biblioteki jak GAMBAS jak równie¿ u¿ywa
-natywnego API subversion zamiast parsowania wyjscia narzêdzia command
-line tak jak to robi± inni klienci subversion.
+KDE zamiast dodatkowej biblioteki jak GAMBAS, jak równie¿ u¿ywa
+natywnego API subversion zamiast analizy wyj¶cia narzêdzia
+dzia³aj±cego z linii poleceñ, tak jak to robi± inni klienci
+subversion.
 
 Program ten stara siê ustawiæ wygl±d zbli¿ony do standardowego
 zarz±dcy plików KDE.
@@ -60,7 +61,7 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir} \
-	kdelnkdir=%{_desktopdir} \
+	kdelnkdir=%{_desktopdir}
 
 %find_lang %{name} --with-kde
 
