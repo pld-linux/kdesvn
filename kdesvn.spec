@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://www.alwins-world.de/programs/download/kdesvn/%{name}-%{version}.tar.gz
 # Source0-md5:	d4819b61e2a4d191e4253cf7a831ccfa
+Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	apr-util-devel
 BuildRequires:	autoconf
@@ -36,6 +37,7 @@ zarz±dcy plików KDE.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
