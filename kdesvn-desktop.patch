@@ -1,0 +1,9 @@
+--- kdesvn-0.4.2/src/kdesvn.desktop~	2005-08-12 21:23:03.007336832 +0200
++++ kdesvn-0.4.2/src/kdesvn.desktop	2005-08-12 21:23:50.058184016 +0200
+@@ -8,3 +8,6 @@
+ Comment=A Subversion client for KDE
+ Comment[de]=Ein Subversionclient für KDE
+ Terminal=false
++Categories=Qt;KDE;Development;RevisionControl;
++
++# vi:encoding=utf-8
