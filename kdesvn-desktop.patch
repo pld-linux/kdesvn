@@ -1,12 +1,22 @@
-diff -ruN kdesvn-0.5.0./src/kdesvn.desktop kdesvn-0.5.0/src/kdesvn.desktop
---- kdesvn-0.5.0./src/kdesvn.desktop	2005-08-16 19:06:27.000000000 +0200
-+++ kdesvn-0.5.0/src/kdesvn.desktop	2005-08-16 19:08:26.981238016 +0200
-@@ -12,5 +12,7 @@
+--- kdesvn-0.7.2/src/kdesvn.desktop.orig	2005-11-09 00:53:00.000000000 +0100
++++ kdesvn-0.7.2/src/kdesvn.desktop	2006-01-12 00:44:47.000000000 +0100
+@@ -3,6 +3,7 @@
+ Name=kdesvn
+ GenericName=SVN client
+ GenericName[de]=Graphische Oberfläche für SVN
++GenericName[pl]=Klient SVN
+ Exec=kdesvn %i %m -caption "%c"
+ Icon=kdesvn
+ Type=Application
+@@ -10,9 +11,10 @@
+ Comment=A Subversion client for KDE
+ Comment[de]=Ein Subversionclient für KDE
+ Comment[nl]=Een Subversion-client voor KDE
++Comment[pl]=Klient Subversion dla KDE
+ Terminal=false
+ MimeType=inode/directory
  ServiceTypes=KParts/ReadOnlyPart,Browser/View
  X-KDE-BrowserView-Args=DetailedList
  X-KDE-Library=libkdesvnpart
 -Categories=Qt;KDE;Development;
 +Categories=Qt;KDE;Development;RevisionControl;
- Icon=kdesvn
-+
-+# vi:encoding=utf-8
