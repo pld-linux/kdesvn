@@ -1,12 +1,12 @@
 Summary:	KDE frontend for subversion
 Summary(pl):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	0.6.2
-Release:	2
+Version:	0.7.2
+Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://www.alwins-world.de/programs/download/kdesvn/%{name}-%{version}.tar.gz
-# Source0-md5:	093ab396dab82031e7313a78ada21d02
+# Source0-md5:	7ebc3e786bab67f23826df99a1828b08
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	apr-util-devel
@@ -73,10 +73,14 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/kde3/lib*.so
-%{_libdir}/kde3/lib*.la
+%attr(755,root,root) %{_libdir}/kde3/*.so
+%{_libdir}/kde3/*.la
 %{_desktopdir}/*
-%{_iconsdir}/*/*/apps/%{name}.png
+%{_iconsdir}/*/*/*/*.png
+%{_iconsdir}/*/*/*/*.svgz
 %{_datadir}/apps/%{name}
 %{_datadir}/apps/kdesvnpart
+%{_datadir}/services/*.protocol
+%{_datadir}/services/kded/kdesvnd.desktop
 %{_datadir}/config.kcfg/*
+%{_datadir}/apps/konqueror/servicemenus/*.desktop
