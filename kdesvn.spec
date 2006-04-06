@@ -1,12 +1,12 @@
 Summary:	KDE frontend for subversion
 Summary(pl):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	0.7.4
+Version:	0.8.1
 Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://www.alwins-world.de/programs/download/kdesvn/%{name}-%{version}.tar.gz
-# Source0-md5:	d8d3860c55200b95e59fffeb2546531f
+# Source0-md5:	6c4f93ddab5670e1a6f7131cd49f466a
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	apr-util-devel
@@ -34,6 +34,39 @@ dzia³aj±cego z linii poleceñ, jak to robi± inni klienci subversion.
 
 Program ten stara siê ustawiæ wygl±d zbli¿ony do standardowego
 zarz±dcy plików KDE.
+
+%package svnqt
+Summary:	Wrapper lib for subversion QT integration
+Summary(pl):	Wrapper biblioteki subversion dla intergracji z QT
+Group:		System Environment/Libraries
+Requires:	subversion >= 1.2.0
+BuildPreReq:	apr-devel
+BuildPreReq:	apr-util-devel
+BuildPreReq:	neon-devel
+BuildPreReq:	subversion-devel >= 1.2.0
+
+%description svnqt
+Shared lib which contains a QT C++ wrapper for subversion. It is core part
+of kdesvn but is designed to not require KDE so plain QT programs may use
+it.
+
+%description svnqt -l pl
+Biblioteka dzielona zawieraj±ca wrapper C++ dla obs³ugi subversion 
+w programach korzystaj±cych z QT bez konieczno¶ci u¿ycia KDE.
+
+%package svnqt-devel
+Summary:	Wrapper lib header files for subversion QT integration
+Summary(pl):	Pliki nag³ówkowe wrappera biblioteki subversion dla QT
+Group:		Development/Libraries
+Requires:	subversion-devel >= 1.2.0
+Requires:	kdesvn-svnqt = %{version}
+
+%description svnqt-devel
+Development files for kdesvn-svnqt
+
+%description svnqt-devel -l pl
+Pliki nag³ówkowe biblioteki dzielonej zawieraj±cej wrapper C++ dla 
+obs³ugi subversion w programach korzystaj±cych z QT bez konieczno¶ci u¿ycia KDE.
 
 %prep
 %setup -q
@@ -84,3 +117,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kded/kdesvnd.desktop
 %{_datadir}/config.kcfg/*
 %{_datadir}/apps/konqueror/servicemenus/*.desktop
+
+%files svnqt
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libsvnqt*.so*
+
+%files svnqt-devel
+%defattr(644,root,root,755)
+#.la files are needed
+%{_libdir}/libsvnqt.la
+%{_includedir}/svnqt/*
