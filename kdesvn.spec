@@ -36,37 +36,35 @@ Program ten stara siê ustawiæ wygl±d zbli¿ony do standardowego
 zarz±dcy plików KDE.
 
 %package svnqt
-Summary:	Wrapper lib for subversion QT integration
-Summary(pl):	Wrapper biblioteki subversion dla intergracji z QT
-Group:		System Environment/Libraries
-Requires:	subversion >= 1.2.0
-BuildPreReq:	apr-devel
-BuildPreReq:	apr-util-devel
-BuildPreReq:	neon-devel
-BuildPreReq:	subversion-devel >= 1.2.0
+Summary:	Wrapper library for subversion Qt integration
+Summary(pl):	Wrapper biblioteki subversion do intergracji z Qt
+Group:		Libraries
+Requires:	subversion-libs >= 1.2.0
 
 %description svnqt
-Shared lib which contains a QT C++ wrapper for subversion. It is core part
-of kdesvn but is designed to not require KDE so plain QT programs may use
-it.
+Shared library which contains a Qt C++ wrapper for subversion. It is
+core part of kdesvn but is designed to not require KDE so plain Qt
+programs may use it.
 
 %description svnqt -l pl
-Biblioteka dzielona zawieraj±ca wrapper C++ dla obs³ugi subversion 
-w programach korzystaj±cych z QT bez konieczno¶ci u¿ycia KDE.
+Biblioteka wspó³dzielona zawieraj±ca wrapper C++ do obs³ugi
+subversion. Jest g³ówn± czê¶ci± kdesvn, ale nie wymaga KDE, wiêc mo¿e
+byæ u¿ywana w programach korzystaj±cych z samego Qt.
 
 %package svnqt-devel
-Summary:	Wrapper lib header files for subversion QT integration
-Summary(pl):	Pliki nag³ówkowe wrappera biblioteki subversion dla QT
+Summary:	Wrapper library header files for subversion Qt integration
+Summary(pl):	Pliki nag³ówkowe wrappera biblioteki subversion dla Qt
 Group:		Development/Libraries
+Requires:	%{name}-svnqt = %{version}-%{release}
+Requires:	qt-devel
 Requires:	subversion-devel >= 1.2.0
-Requires:	kdesvn-svnqt = %{version}
 
 %description svnqt-devel
-Development files for kdesvn-svnqt
+Header files for wrapper library for subversion Qt integration.
 
 %description svnqt-devel -l pl
-Pliki nag³ówkowe biblioteki dzielonej zawieraj±cej wrapper C++ dla 
-obs³ugi subversion w programach korzystaj±cych z QT bez konieczno¶ci u¿ycia KDE.
+Pliki nag³ówkowe biblioteki wspó³dzielonej zawieraj±cej wrapper C++ do
+obs³ugi subversion.
 
 %prep
 %setup -q
@@ -103,6 +101,9 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	svnqt -p /sbin/ldconfig
+%postun	svnqt -p /sbin/ldconfig
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
@@ -120,10 +121,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files svnqt
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libsvnqt*.so*
+%attr(755,root,root) %{_libdir}/libsvnqt*.so.*.*.*
 
 %files svnqt-devel
 %defattr(644,root,root,755)
-#.la files are needed
+%attr(755,root,root) %{_libdir}/libsvnqt*.so
 %{_libdir}/libsvnqt.la
-%{_includedir}/svnqt/*
+%{_includedir}/svnqt
