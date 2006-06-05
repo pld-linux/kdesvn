@@ -9,7 +9,6 @@ Source0:	http://www.alwins-world.de/programs/download/kdesvn/%{name}-%{version}.
 # Source0-md5:	4638a9494a8824be9dd6991efedadf9c
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
-BuildRequires:	apr-util-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2.0
