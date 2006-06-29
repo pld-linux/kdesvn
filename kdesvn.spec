@@ -1,6 +1,5 @@
-#
-# TODO: german description
 Summary:	KDE frontend for subversion
+Summary(de):	KDE Frontend für Subversion
 Summary(pl):	Frontend KDE do subversion
 Name:		kdesvn
 Version:	0.8.5
@@ -15,11 +14,11 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	subversion-devel >= 1.2.0 
+BuildRequires:	subversion-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-kdesvn is yet another client for subversion. But it uses native KDE
+Kdesvn is yet another client for subversion. But it uses native KDE
 API instead of a extra lib like GAMBAS and it is using the native
 subversion delevelopment API instead of just parsing the output of the
 commandline tool like most other clients do.
@@ -27,8 +26,14 @@ commandline tool like most other clients do.
 It tries to setup a look and feel like the standard filemanager of
 KDE.
 
+%description -l de
+Kdesvn ist ein weiterer Subversion Klient. Aber es benutzt die native
+KDE API anstatt einer zusätzlichen Bibliothek wie GAMBAS und es
+benutzt die native subversion Development API anstatt nur die Ausgabe
+zu parsen wie die meisten anderen Klienten es tun.
+
 %description -l pl
-kdesvn jest kolejnym klientem subversion. U¿ywa jednak natywnego API
+Kdesvn jest kolejnym klientem subversion. U¿ywa jednak natywnego API
 KDE zamiast dodatkowej biblioteki jak GAMBAS, jak równie¿ u¿ywa
 natywnego API subversion zamiast analizy wyj¶cia narzêdzia
 dzia³aj±cego z linii poleceñ, jak to robi± inni klienci subversion.
@@ -82,8 +87,8 @@ cp -f /usr/share/automake/config.sub admin
 	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
 	--with-qt-libraries=%{_libdir} \
 	--with-svn-lib=%{_libdir} \
-	--with-apr-config=/usr/bin/apr-1-config \
-	--with-apu-config=/usr/bin/apu-1-config
+	--with-apr-config=%{_bindir}/apr-1-config \
+	--with-apu-config=%{_bindir}/apu-1-config
 
 %{__make}
 
