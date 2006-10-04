@@ -2,17 +2,15 @@ Summary:	KDE frontend for subversion
 Summary(de):	KDE Frontend für Subversion
 Summary(pl):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	0.9.3
-Release:	2
+Version:	0.10.0
+Release:	0.1
 License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://www.alwins-world.de/programs/download/kdesvn/%{name}-%{version}.tar.bz2
-# Source0-md5:	542a70a1b158fb99757593cdeb263b2a
+# Source0-md5:	896d62ac8687236f05e984ba6cd69e6b
 Patch0:		%{name}-desktop.patch
-Patch1:		kde-ac260-lt.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	cmake >= 2.4.0
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	subversion-devel >= 1.2.0
@@ -76,22 +74,9 @@ obs³ugi subversion.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-cp -f /usr/share/automake/config.sub admin
-%{__make} -f admin/Makefile.common cvs
-
-%configure \
-%if "%{_lib}" == "lib64"
-	--enable-libsuffix=64 \
-%endif
-	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
-	--with-qt-libraries=%{_libdir} \
-	--with-svn-lib=%{_libdir} \
-	--with-apr-config=%{_bindir}/apr-1-config \
-	--with-apu-config=%{_bindir}/apu-1-config
-
+%cmake -DCMAKE_INSTALL_PREFIX=/usr .
 %{__make}
 
 %install
@@ -126,6 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kded/kdesvnd.desktop
 %{_datadir}/config.kcfg/*
 %{_datadir}/apps/konqueror/servicemenus/*.desktop
+%{_mandir}/man1/kdesvn.1.gz
+%{_mandir}/man1/kdesvnaskpass.1.gz
 
 %files svnqt
 %defattr(644,root,root,755)
