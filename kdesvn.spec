@@ -111,8 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kded/kdesvnd.desktop
 %{_datadir}/config.kcfg/*
 %{_datadir}/apps/konqueror/servicemenus/*.desktop
-%{_mandir}/man1/kdesvn.1.gz
-%{_mandir}/man1/kdesvnaskpass.1.gz
+%{_mandir}/man1/kdesvn.1*
+%{_mandir}/man1/kdesvnaskpass.1*
 
 %files svnqt
 %defattr(644,root,root,755)
