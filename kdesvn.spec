@@ -14,6 +14,7 @@ BuildRequires:	cmake >= 2.4.0
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	subversion-devel >= 1.2.0
+BuildConflicts:	kdesvn-svnqt-devel < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
