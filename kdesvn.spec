@@ -80,19 +80,17 @@ obs³ugi subversion.
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} .
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	.
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir} \
-	kde_libs_htmldir=%{_kdedocdir} \
-	kdelnkdir=%{_desktopdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-kde
 
