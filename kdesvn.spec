@@ -80,8 +80,8 @@ obs³ugi subversion.
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
-	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	.
 
 %{__make}
