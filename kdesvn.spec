@@ -1,6 +1,6 @@
 Summary:	KDE frontend for subversion
-Summary(de):	KDE Frontend f¸r Subversion
-Summary(pl):	Frontend KDE do subversion
+Summary(de.UTF-8):   KDE Frontend f√ºr Subversion
+Summary(pl.UTF-8):   Frontend KDE do subversion
 Name:		kdesvn
 Version:	0.11.0
 Release:	2
@@ -26,24 +26,24 @@ commandline tool like most other clients do.
 It tries to setup a look and feel like the standard filemanager of
 KDE.
 
-%description -l de
+%description -l de.UTF-8
 Kdesvn ist ein weiterer Subversion Klient. Aber es benutzt die native
-KDE API anstatt einer zus‰tzlichen Bibliothek wie GAMBAS und es
+KDE API anstatt einer zus√§tzlichen Bibliothek wie GAMBAS und es
 benutzt die native subversion Development API anstatt nur die Ausgabe
 zu parsen wie die meisten anderen Klienten es tun.
 
-%description -l pl
-Kdesvn jest kolejnym klientem subversion. Uøywa jednak natywnego API
-KDE zamiast dodatkowej biblioteki jak GAMBAS, jak rÛwnieø uøywa
-natywnego API subversion zamiast analizy wyj∂cia narzÍdzia
-dzia≥aj±cego z linii poleceÒ, jak to robi± inni klienci subversion.
+%description -l pl.UTF-8
+Kdesvn jest kolejnym klientem subversion. U≈ºywa jednak natywnego API
+KDE zamiast dodatkowej biblioteki jak GAMBAS, jak r√≥wnie≈º u≈ºywa
+natywnego API subversion zamiast analizy wyj≈õcia narzƒôdzia
+dzia≈ÇajƒÖcego z linii polece≈Ñ, jak to robiƒÖ inni klienci subversion.
 
-Program ten stara siÍ ustawiÊ wygl±d zbliøony do standardowego
-zarz±dcy plikÛw KDE.
+Program ten stara siƒô ustawiƒá wyglƒÖd zbli≈ºony do standardowego
+zarzƒÖdcy plik√≥w KDE.
 
 %package svnqt
 Summary:	Wrapper library for subversion Qt integration
-Summary(pl):	Wrapper biblioteki subversion do intergracji z Qt
+Summary(pl.UTF-8):   Wrapper biblioteki subversion do intergracji z Qt
 Group:		Libraries
 Requires:	subversion-libs >= 1.2.0
 
@@ -52,14 +52,14 @@ Shared library which contains a Qt C++ wrapper for subversion. It is
 core part of kdesvn but is designed to not require KDE so plain Qt
 programs may use it.
 
-%description svnqt -l pl
-Biblioteka wspÛ≥dzielona zawieraj±ca wrapper C++ do obs≥ugi
-subversion. Jest g≥Ûwn± czÍ∂ci± kdesvn, ale nie wymaga KDE, wiÍc moøe
-byÊ uøywana w programach korzystaj±cych z samego Qt.
+%description svnqt -l pl.UTF-8
+Biblioteka wsp√≥≈Çdzielona zawierajƒÖca wrapper C++ do obs≈Çugi
+subversion. Jest g≈Ç√≥wnƒÖ czƒô≈õciƒÖ kdesvn, ale nie wymaga KDE, wiƒôc mo≈ºe
+byƒá u≈ºywana w programach korzystajƒÖcych z samego Qt.
 
 %package svnqt-devel
 Summary:	Wrapper library header files for subversion Qt integration
-Summary(pl):	Pliki nag≥Ûwkowe wrappera biblioteki subversion dla Qt
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe wrappera biblioteki subversion dla Qt
 Group:		Development/Libraries
 Requires:	%{name}-svnqt = %{version}-%{release}
 Requires:	qt-devel
@@ -68,9 +68,9 @@ Requires:	subversion-devel >= 1.2.0
 %description svnqt-devel
 Header files for wrapper library for subversion Qt integration.
 
-%description svnqt-devel -l pl
-Pliki nag≥Ûwkowe biblioteki wspÛ≥dzielonej zawieraj±cej wrapper C++ do
-obs≥ugi subversion.
+%description svnqt-devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki wsp√≥≈Çdzielonej zawierajƒÖcej wrapper C++ do
+obs≈Çugi subversion.
 
 %prep
 %setup -q
