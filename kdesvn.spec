@@ -1,6 +1,6 @@
 Summary:	KDE frontend for subversion
-Summary(de.UTF-8):   KDE Frontend für Subversion
-Summary(pl.UTF-8):   Frontend KDE do subversion
+Summary(de.UTF-8):	KDE Frontend für Subversion
+Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
 Version:	0.11.0
 Release:	2
@@ -43,7 +43,7 @@ zarządcy plików KDE.
 
 %package svnqt
 Summary:	Wrapper library for subversion Qt integration
-Summary(pl.UTF-8):   Wrapper biblioteki subversion do intergracji z Qt
+Summary(pl.UTF-8):	Wrapper biblioteki subversion do intergracji z Qt
 Group:		Libraries
 Requires:	subversion-libs >= 1.2.0
 
@@ -59,7 +59,7 @@ być używana w programach korzystających z samego Qt.
 
 %package svnqt-devel
 Summary:	Wrapper library header files for subversion Qt integration
-Summary(pl.UTF-8):   Pliki nagłówkowe wrappera biblioteki subversion dla Qt
+Summary(pl.UTF-8):	Pliki nagłówkowe wrappera biblioteki subversion dla Qt
 Group:		Development/Libraries
 Requires:	%{name}-svnqt = %{version}-%{release}
 Requires:	qt-devel
