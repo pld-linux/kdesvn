@@ -15,6 +15,7 @@ BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	subversion-devel >= 1.2.0
 BuildConflicts:	kdesvn-svnqt-devel < %{version}
+Requires:	%{name}-svnqt = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
