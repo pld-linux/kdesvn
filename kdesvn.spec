@@ -2,12 +2,12 @@ Summary:	KDE frontend for subversion
 Summary(de.UTF-8):	KDE Frontend für Subversion
 Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	0.12.1
+Version:	0.13.0
 Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
-Source0:	http://www.alwins-world.de/programs/download/kdesvn/0.12.x/%{name}-%{version}.tar.bz2
-# Source0-md5:	160bdbbfb47b7c0ee1ce8ccacd18cedc
+Source0:	http://www.alwins-world.de/programs/download/kdesvn/0.13.x/%{name}-%{version}.tar.bz2
+# Source0-md5:	8722253b4fe7789e2394d0f9f85dc52f
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	cmake >= 2.4.0
