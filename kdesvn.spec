@@ -2,12 +2,12 @@ Summary:	KDE frontend for subversion
 Summary(de.UTF-8):	KDE Frontend für Subversion
 Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	0.13.0
+Version:	0.14.0
 Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
-Source0:	http://www.alwins-world.de/programs/download/kdesvn/0.13.x/%{name}-%{version}.tar.bz2
-# Source0-md5:	8722253b4fe7789e2394d0f9f85dc52f
+Source0:	http://www.alwins-world.de/programs/download/kdesvn/0.14.x/%{name}-%{version}.tar.bz2
+# Source0-md5:	53648613da71e9adfc160d3c27e4ed28
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	cmake >= 2.4.0
@@ -106,7 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/kde3/*.so
-%{_libdir}/kde3/*.la
 %{_desktopdir}/kde/kdesvn.desktop
 %{_iconsdir}/*/*/*/*.png
 %{_iconsdir}/*/*/*/*.svgz
@@ -116,6 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kded/kdesvnd.desktop
 %{_datadir}/config.kcfg/*
 %{_datadir}/apps/konqueror/servicemenus/*.desktop
+%{_datadir}/apps/kconf_update/kdesvn-use-external-update.sh
+%{_datadir}/apps/kconf_update/kdesvnpartrc-use-external.upd
 %{_mandir}/man1/kdesvn.1*
 %{_mandir}/man1/kdesvnaskpass.1*
 
@@ -126,5 +127,4 @@ rm -rf $RPM_BUILD_ROOT
 %files svnqt-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libsvnqt*.so
-%{_libdir}/libsvnqt.la
 %{_includedir}/svnqt
