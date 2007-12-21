@@ -102,8 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
-
 %find_lang %{name} --with-kde
 
 %clean
@@ -116,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/kde3/*.so
+%{_libdir}/kde3/*.la
 %{_desktopdir}/kde/kdesvn.desktop
 %{_iconsdir}/*/*/*/*.png
 %{_iconsdir}/*/*/*/*.svgz
@@ -137,4 +136,5 @@ rm -rf $RPM_BUILD_ROOT
 %files svnqt-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libsvnqt*.so
+%{_libdir}/libsvnqt.la
 %{_includedir}/svnqt
