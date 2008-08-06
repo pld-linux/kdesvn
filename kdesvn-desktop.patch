@@ -1,17 +1,17 @@
 --- kdesvn-0.9.0/src/kdesvn.desktop.orig	2006-07-18 00:57:43.058422500 +0200
 +++ kdesvn-0.9.0/src/kdesvn.desktop	2006-07-18 00:58:17.796593500 +0200
 @@ -4,6 +4,7 @@
- GenericName=SVN client
  GenericName[de]=Graphische Oberfläche für SVN
  GenericName[es]=Cliente SVN
+ GenericName[lt]=SVN klientas
 +GenericName[pl]=Klient SVN
  Exec=kdesvn %i %m -caption "%c"
  Icon=kdesvn
  Type=Application
 @@ -12,9 +13,10 @@
- Comment[de]=Ein Subversionclient für KDE
  Comment[nl]=Een Subversion-client voor KDE
  Comment[es]=Un cliente de Subversion para KDE
+ Comment[lt]=Subversion klientas skirtas KDE
 +Comment[pl]=Klient Subversion dla SVN
  Terminal=false
  MimeType=inode/directory
