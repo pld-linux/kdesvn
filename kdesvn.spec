@@ -2,17 +2,18 @@ Summary:	KDE frontend for subversion
 Summary(de.UTF-8):	KDE Frontend für Subversion
 Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	0.14.6
-Release:	1
+Version:	1.2.3
+Release:	0.1
 License:	GPL v2
 Group:		X11/Development/Tools
-Source0:	http://kdesvn.alwins-world.de/trac.fcgi/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	9f481b3315f0d08cc0dc65c03df1d843
+Source0:	http://kdesvn.alwins-world.de/downloads/%{name}-%{version}.tar.bz2
+# Source0-md5:	44f2168d72a82736be8266d9060ede75
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
+BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.4.0
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel >= 9:3.2.0
+BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	subversion-devel >= 1.2.0
 BuildConflicts:	kdesvn-svnqt-devel < %{version}
@@ -103,8 +104,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
-
 %find_lang %{name} --with-kde
 
 %clean
@@ -116,26 +115,28 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/kde3/*.so
-%{_desktopdir}/kde/kdesvn.desktop
+%attr(755,root,root) %{_libdir}/kde4/*.so
+%{_desktopdir}/kde4/kdesvn.desktop
 %{_iconsdir}/*/*/*/*.png
 %{_iconsdir}/*/*/*/*.svgz
 %{_datadir}/apps/%{name}
 %{_datadir}/apps/kdesvnpart
-%{_datadir}/services/*.protocol
-%{_datadir}/services/kded/kdesvnd.desktop
-%{_datadir}/config.kcfg/*
-%{_datadir}/apps/konqueror/servicemenus/*.desktop
 %{_datadir}/apps/kconf_update/kdesvn-use-external-update.sh
 %{_datadir}/apps/kconf_update/kdesvnpartrc-use-external.upd
+%{_datadir}/config.kcfg/*
+%{_datadir}/kde4/services/ServiceMenus/*.desktop
+%{_datadir}/kde4/services/*.desktop
+%{_datadir}/kde4/services/*.protocol
+%{_datadir}/kde4/services/kded/kdesvnd.desktop
+%{_datadir}/dbus-1/interfaces/*.xml
 %{_mandir}/man1/kdesvn.1*
 %{_mandir}/man1/kdesvnaskpass.1*
 
 %files svnqt
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libsvnqt*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libsvnqt.so.*.*.*
 
 %files svnqt-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libsvnqt*.so
+%attr(755,root,root) %{_libdir}/libsvnqt.so
 %{_includedir}/svnqt
