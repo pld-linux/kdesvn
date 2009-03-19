@@ -1,9 +1,12 @@
+%define		_kdever	4.0
+%define		_qtver	4.0
+
 Summary:	KDE frontend for subversion
 Summary(de.UTF-8):	KDE Frontend für Subversion
 Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
 Version:	1.2.3
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://kdesvn.alwins-world.de/downloads/%{name}-%{version}.tar.bz2
@@ -13,11 +16,21 @@ URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.4.0
 BuildRequires:	gettext-devel
-BuildRequires:	kde4-kdelibs-devel
+BuildRequires:	kde4-kdelibs-devel >= %(_kdever} 
+BuildRequires:	QtCore-devel >= %{_qtver}
+BuildRequires:	QtSql-devel >= %{_qtver}
+BuildRequires:	apr-devel
+BuildRequires:	apr-util-devel
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	subversion-devel >= 1.2.0
 BuildConflicts:	kdesvn-svnqt-devel < %{version}
 Requires:	%{name}-svnqt = %{version}-%{release}
+Requires:	QtCore >= %{_qtver}
+Requires:	QtSql >= %{_qtver}
+Requires:	subversion >= 1.2.0
+Requires:	apr
+Requires:	apr-util
+Requires:	kde4-kdelibs-libs >= %{_kdever}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -134,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files svnqt
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libsvnqt.so.*.*.*
+%attr(755,root,root) %{_libdir}/libsvnqt.so.*
 
 %files svnqt-devel
 %defattr(644,root,root,755)
