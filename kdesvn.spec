@@ -16,7 +16,7 @@ URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.4.0
 BuildRequires:	gettext-devel
-BuildRequires:	kde4-kdelibs-devel >= %(_kdever} 
+BuildRequires:	kde4-kdelibs-devel >= %{_kdever} 
 BuildRequires:	QtCore-devel >= %{_qtver}
 BuildRequires:	QtSql-devel >= %{_qtver}
 BuildRequires:	apr-devel
