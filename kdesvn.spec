@@ -30,7 +30,7 @@ Requires:	QtSql >= %{_qtver}
 Requires:	subversion >= 1.2.0
 Requires:	apr
 Requires:	apr-util
-Requires:	kde4-kdelibs-libs >= %{_kdever}
+Requires:	kde4-kdelibs >= %{_kdever}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
