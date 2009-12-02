@@ -13,24 +13,28 @@ Source0:	http://kdesvn.alwins-world.de/downloads/%{name}-%{version}.tar.bz2
 # Source0-md5:	e5778ff1c19e50392a13096ab6756521
 Patch0:		%{name}-desktop.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
+BuildRequires:	QtCore-devel >= %{_qtver}
+BuildRequires:	QtNetwork-devel
+BuildRequires:	QtSql-devel >= %{_qtver}
+BuildRequires:	QtSvg-devel
+BuildRequires:	apr-devel
+BuildRequires:	apr-util-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.4.0
 BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdelibs-devel >= %{_kdever}
-BuildRequires:	QtCore-devel >= %{_qtver}
-BuildRequires:	QtSql-devel >= %{_qtver}
-BuildRequires:	apr-devel
-BuildRequires:	apr-util-devel
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	subversion-devel >= 1.2.0
 BuildConflicts:	kdesvn-svnqt-devel < %{version}
 Requires:	%{name}-svnqt = %{version}-%{release}
 Requires:	QtCore >= %{_qtver}
 Requires:	QtSql >= %{_qtver}
-Requires:	subversion >= 1.2.0
 Requires:	apr
 Requires:	apr-util
 Requires:	kde4-kdelibs >= %{_kdever}
+Requires:	subversion >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
