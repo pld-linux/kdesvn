@@ -5,13 +5,14 @@ Summary:	KDE frontend for subversion
 Summary(de.UTF-8):	KDE Frontend für Subversion
 Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	1.4.1
+Version:	1.5.5
 Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://kdesvn.alwins-world.de/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	e5778ff1c19e50392a13096ab6756521
+# Source0-md5:	8f11d31cc55fba408b7971541ee261d0
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-docbook.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
 BuildRequires:	QtCore-devel >= %{_qtver}
 BuildRequires:	QtNetwork-devel
@@ -95,6 +96,7 @@ obsługi subversion.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 cd doc/en
 for a in $(find -type l); do
