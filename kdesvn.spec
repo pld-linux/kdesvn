@@ -1,41 +1,32 @@
-%define		_kdever	4.0
-%define		_qtver	4.0
+%define		kdever		4.2
+%define		qtver		4.8.1
 
 Summary:	KDE frontend for subversion
 Summary(de.UTF-8):	KDE Frontend für Subversion
 Summary(pl.UTF-8):	Frontend KDE do subversion
 Name:		kdesvn
-Version:	1.5.5
+Version:	1.6.0
 Release:	1
 License:	GPL v2
 Group:		X11/Development/Tools
 Source0:	http://kdesvn.alwins-world.de/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	8f11d31cc55fba408b7971541ee261d0
+# Source0-md5:	7e6adc98ff4777a06d5752d3f2b58fa3
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-docbook.patch
 URL:		http://www.alwins-world.de/programs/kdesvn/
-BuildRequires:	QtCore-devel >= %{_qtver}
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtSql-devel >= %{_qtver}
-BuildRequires:	QtSvg-devel
-BuildRequires:	apr-devel
-BuildRequires:	apr-util-devel
-BuildRequires:	automoc4
+BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.4.0
+BuildRequires:	docbook-dtd42-xml
+BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-devel
-BuildRequires:	kde4-kdelibs-devel >= %{_kdever}
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
-BuildRequires:	rpmbuild(macros) >= 1.293
-BuildRequires:	subversion-devel >= 1.2.0
+BuildRequires:	kde4-kdelibs-devel >= %{kdever}
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	rpmbuild(macros) >= 1.600
+BuildRequires:	subversion-devel >= 1.6
 BuildConflicts:	kdesvn-svnqt-devel < %{version}
 Requires:	%{name}-svnqt = %{version}-%{release}
-Requires:	QtCore >= %{_qtver}
-Requires:	QtSql >= %{_qtver}
-Requires:	apr
-Requires:	apr-util
-Requires:	kde4-kdelibs >= %{_kdever}
-Requires:	subversion >= 1.2.0
+Requires:	kde4-kdelibs >= %{kdever}
+Requires:	subversion >= 1.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,7 +57,7 @@ zarządcy plików KDE.
 Summary:	Wrapper library for subversion Qt integration
 Summary(pl.UTF-8):	Wrapper biblioteki subversion do intergracji z Qt
 Group:		Libraries
-Requires:	subversion-libs >= 1.2.0
+Requires:	subversion-libs >= 1.6
 
 %description svnqt
 Shared library which contains a Qt C++ wrapper for subversion. It is
@@ -83,8 +74,9 @@ Summary:	Wrapper library header files for subversion Qt integration
 Summary(pl.UTF-8):	Pliki nagłówkowe wrappera biblioteki subversion dla Qt
 Group:		Development/Libraries
 Requires:	%{name}-svnqt = %{version}-%{release}
-Requires:	qt-devel
-Requires:	subversion-devel >= 1.2.0
+Requires:	QtGui-devel
+Requires:	QtSql-devel
+Requires:	subversion-devel >= 1.6
 
 %description svnqt-devel
 Header files for wrapper library for subversion Qt integration.
@@ -96,32 +88,21 @@ obsługi subversion.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-
-cd doc/en
-for a in $(find -type l); do
-	l=$(readlink $a)
-	rm -f $a
-	cp -a $l $a;
-done
-cd -
 
 %build
+install -d build
+cd build
 %cmake \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	.
+	../
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%{__make} -C build install \
+        DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir}
 
 %find_lang %{name} --with-kde
 
